@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>Therapy</title>
+</head>
+<body>
+<div>
+    <div class="navigation">
+    <a class="logo" href="index.html">DIGITHERAPY</a>
+    <div class="loginsignup">
+        <button data-bs-toggle="modal" data-bs-target="#loginmodal" type="button" class="btn btn-rounded btn-warning">Login</button>
+        <button data-bs-toggle="modal" data-bs-target="#signupmodal" type="button"  class="btn btn-rounded btn-success">Sign Up</button>
+    </div>
+</div>
+<hr>
+<h1 class="text-center text-success font-weight-bold">WELCOME TO TELETHERAPY</h1>
+<h3 class="text-center text-success description">WE OFFER ALL THERAPY SOLUTIONS AT JUST A CLICK</h3>
+
+<div class="imgdiv">
+<img class="img-fluid" src="images/teletherapy.png" alt="">
+</div>
+
+<div class="conbtn">
+    <a href="welcome.html" class="btn btn-info btn-rounded-0">CONNECT TO A THERAPIST</a>
+</div>
+
+<!---Log in Modal start-->
+<div class="modal fade" id="loginmodal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title text-success text-center" id="teacheraddModalLabel">LOG IN</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        <form action="#" method="POST" enctype="multipart/form-data" id="loginform">
+            <div class="form-group">
+                <label for="">Enter your Email</label>
+                <input type="email" name="email" id="email" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="">Enter your Password</label>
+                <input type="password" name="password" id="password" class="form-control">
+              </div> 
+              <div class="form-group p-2">
+                <button class="btn btn-rounded-0 btn-warning" type="submit">LOG IN</button>
+            </div>        
+        </form>
+    </div>
+</div>
+</div>
+</div>
+<!--Log in modal End-->
+
+
+
+<!--Sign Up modal Start-->
+<div class="modal fade" id="signupmodal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title text-success text-center">SIGN UP</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        <form action="#" method="POST" enctype="multipart/form-data" id="signupform">
+          <div class="form-group">
+            <label for="">First Name</label>
+            <input type="text" name="fname" id="fname" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="">Last Name</label>
+            <input type="text" name="lname" id="lname" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="">Phone Number</label>
+            <input type="phone" name="phoneno" id="phoneno" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="">Email</label>
+            <input type="email" name="email" id="email" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="">Password</label>
+            <input type="password" name="password" id="password" class="form-control">
+          </div>      
+          <div class="form-group">
+            <label for="">Confirm Password</label>
+            <input type="password" name="cpassword" id="cpassword" class="form-control">
+          </div>
+          <div class="form-group p-2">
+              <button id="signupbtn" class="btn btn-rounded-0 btn-warning" type="submit">REGISTER</button>
+          </div>            
+        </form>
+    </div>
+</div>
+</div>
+</div>
+<!--Sign Up modal Start-->
+
+
+</div>
+
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.js"></script>
+
+<script>
+    $(document).ready(function(){
+        //Send sign ajax request
+        $('#signupform').submit(function(e){
+            e.preventDefault();
+            $('#signupbtn').val('PLEASE WAIT...')
+            var formdata = new FormData($(this)[0]);
+            
+            $.ajax({
+                method: 'POST',
+                url: 'backend/signup.php',
+                //contentType: false,
+                processData: false,
+                //dataType: 'json',
+                data: formdata,
+                headers: {
+                  "accept": "application/json",
+                  "Access-Control-Allow-Origin":"*"
+                },
+                success: function(res){
+                   console.log(res)
+                }
+            })
+        })
+
+        //Send login ajax request
+        $('#loginform').submit(function(e){
+            e.preventDefault();
+            alert('LOG IN')
+        })
+
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+.logo {
+    text-decoration: none;
+    font-weight: bold;
+    color: brown;
+}
+.navigation {
+    margin: 10px;
+}
+.loginsignup {
+    float: right;
+}
+.description {
+    margin-top: 50px;
+}
+.imgdiv {
+    text-align: center;
+}
+.conbtn {
+    text-align: center;
+    margin: 20px;
+}
+.welcometext {
+    margin: 10px;
+    border: 2px solid black;
+    width: 250px;
+    height: 250px;
+}
+.welcometext2 {
+    display: flex;
+    max-height: 300px;
+}
